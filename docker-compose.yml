@@ -1,0 +1,43 @@
+version: '3'
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx01
+    ports:
+      - 8000:8000
+    volumes:
+      - ./config/nginx:/etc/nginx/conf.d
+      - ./parking:/src
+    depends_on:
+      - web
+
+  web:
+    build: .
+    container_name: web01
+    command: bash -c "python manage.py collectstatic --no-input && python manage.py migrate --noinput && python manage.py loaddata initial && gunicorn parking.wsgi -b 0.0.0.0:8000"
+    depends_on:
+      - db
+    volumes:
+      - ./parking:/src
+
+  tg:
+    build: .
+    container_name: tg01
+    command: bash -c "python manage.py polling"
+    depends_on:
+      - db
+    volumes:
+      - ./parking:/src
+
+  db:
+    image: postgres:latest
+    container_name: postgres01
+    environment:
+      POSTGRES_DB: parking
+      POSTGRES_USER: parking
+      POSTGRES_PASSWORD: p@ss
+    volumes:
+      - db_volume:/var/lib/postgresql/data
+
+volumes:
+  db_volume:

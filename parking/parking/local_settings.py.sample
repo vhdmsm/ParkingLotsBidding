@@ -1,0 +1,16 @@
+DEBUG = True
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'parking',
+        'HOST': 'db',
+        'PASSWORD': '<password>'
+	    'CONN_MAX_AGE': 60,
+    }
+}
+
+BROKER_TRANSPORT = "redis"
+BROKER_HOST = "localhost"  # Maps to redis host.
+BROKER_PORT = 6379         # Maps to redis port.
+BROKER_VHOST = "0"
