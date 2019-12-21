@@ -14,7 +14,7 @@ services:
   web:
     build: .
     container_name: web01
-    command: bash -c "python manage.py collectstatic --no-input && python manage.py migrate --noinput && python manage.py loaddata initial && gunicorn parking.wsgi -b 0.0.0.0:8000"
+    command: bash -c "python manage.py collectstatic --no-input --settings=parking.prod_settings && python manage.py migrate --noinput --settings=parking.prod_settings && python manage.py loaddata initial --settings=parking.prod_settings && gunicorn --env DJANGO_SETTINGS_MODULE=parking.prod_settings parking.wsgi -b 0.0.0.0:8000"
     depends_on:
       - db
     volumes:
