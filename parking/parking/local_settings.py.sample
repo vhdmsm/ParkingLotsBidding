@@ -10,7 +10,4 @@ DATABASES = {
     }
 }
 
-BROKER_TRANSPORT = "redis"
-BROKER_HOST = "localhost"  # Maps to redis host.
-BROKER_PORT = 6379         # Maps to redis port.
-BROKER_VHOST = "0"
+BOT_TOKEN = "773453069:AAG8h0EdJdjsIh6IFTHp7UrU-eh209pd8s0"

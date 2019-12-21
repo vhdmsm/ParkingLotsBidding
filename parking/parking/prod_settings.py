@@ -169,3 +169,5 @@ MEDIA_URL = '/media/'
 #         }
 #     }
 # }
+
+BOT_TOKEN = "773453069:AAG8h0EdJdjsIh6IFTHp7UrU-eh209pd8s0"
