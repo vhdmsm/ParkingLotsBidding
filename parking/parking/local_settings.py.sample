@@ -5,7 +5,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'parking',
         'HOST': 'db',
-        'PASSWORD': '<password>'
+        'PASSWORD': '<password>',
 	    'CONN_MAX_AGE': 60,
     }
 }
