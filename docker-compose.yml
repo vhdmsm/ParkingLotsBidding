@@ -23,7 +23,7 @@ services:
   tg:
     build: .
     container_name: tg01
-    command: bash -c "python manage.py dev_polling"
+    command: bash -c "python manage.py polling"
     depends_on:
       - db
     volumes:
