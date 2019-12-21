@@ -35,7 +35,7 @@ services:
     environment:
       POSTGRES_DB: parking
       POSTGRES_USER: parking
-      POSTGRES_PASSWORD: p@arking
+      POSTGRES_PASSWORD: parking
     volumes:
       - db_volume:/var/lib/postgresql/data
 
