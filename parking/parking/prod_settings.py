@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'parking.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'parking',
         'HOST': 'db',
         'USER': 'parking',
