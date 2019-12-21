@@ -10,13 +10,15 @@ from telegram.ext import CommandHandler, MessageHandler, Filters, Dispatcher, In
 
 @csrf_exempt
 def webhook(request):
-    from tgbot.bot_handler import start, handle_text, error, guide_msg, add_pelak, inlinequery_handler, inform_pelak
+    from tgbot.bot_handler import start, handle_text, error, guide_msg, add_pelak, inlinequery_handler, auction_msg
     bot = Bot(settings.BOT_TOKEN)
 
     dispatcher = Dispatcher(bot, Queue(), workers=4)
     # The command
     dispatcher.add_handler(InlineQueryHandler(inlinequery_handler))
+    dispatcher.add_handler(CommandHandler('start', start, pass_args=True))
     dispatcher.add_handler(CommandHandler('guide', guide_msg))
+    dispatcher.add_handler(CommandHandler('auction', auction_msg))
     dispatcher.add_handler(CommandHandler('add_pelak', add_pelak, pass_args=True))
     dispatcher.add_handler(CommandHandler('inform_pelak', add_pelak, pass_args=True))
     dispatcher.add_handler(CommandHandler('home', start))
