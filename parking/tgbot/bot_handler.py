@@ -4,7 +4,7 @@ from django.db.models import Max
 from telegram import InlineQueryResultArticle, InputTextMessageContent
 from telegram.error import BadRequest, TelegramError, Unauthorized
 from parking.constants import MIN_BID_VALUE, BID_STEP, AVAILABLE_PARKING_LOTS, END_TIME, MIN_BID_DB_ID, \
-    PARKING_CHANNEL_USERNAME
+    PARKING_CHANNEL_USERNAME, MAX_BID_VALUE
 from parking.utils import Utils
 from tgbot.annotators import user_annotator
 from tgbot.models import Person, Bid, Pelak
@@ -225,7 +225,7 @@ def handle_text(bot, update, **kwargs):
         return
     try:
         bid_value = int(text)
-        if bid_value > MIN_BID_VALUE:
+        if bid_value > MAX_BID_VALUE:
             send_tg_text_message(bot, chat_id, msg='❗️ تو که اینقد پول داری با اسنپ بیا دیگه 😁 ماکس قیمت 700,000 تومنه!')
             return
         if not bid_value > MIN_BID_VALUE:

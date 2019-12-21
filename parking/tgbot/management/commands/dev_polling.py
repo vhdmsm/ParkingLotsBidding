@@ -15,6 +15,7 @@ class Command(NoArgsCommand):
     def handle_noargs(self, **options):
         print("Polling started...")
         updater = Updater(settings.BOT_TOKEN)
+        print(updater.bot.get_me())
 
         dispatcher = updater.dispatcher
 
