@@ -139,7 +139,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
-BOT_TOKEN = "773453069:AAG8h0EdJdjsIh6IFTHp7UrU-eh209pd8s0"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
