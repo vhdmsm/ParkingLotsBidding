@@ -4,7 +4,7 @@ raven==5.32.0
 requests==2.18.4
 urllib3==1.22
 whitenoise==3.2
-Django==1.9.7
+Django==1.11.28
 gunicorn==19.6.0
 amqp==1.4.9
 psycopg2==2.7.5
